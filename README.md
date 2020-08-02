@@ -21,4 +21,6 @@ Com esse pequeno código o deve terá acesso a api deseja e depois e só usar co
 # Desenvolver 
 Diego Francisco
 
-[github](github.com/diego4x)
+[github](HTTPS://github.com/diego4x)
+
+[LinkedIn](https://www.linkedin.com/in/diego-francisco-b7b535193)
