@@ -24,3 +24,6 @@ Diego Francisco
 [github](HTTPS://github.com/diego4x)
 
 [LinkedIn](https://www.linkedin.com/in/diego-francisco-b7b535193)
+
+# License
+[MIT](https://choosealicense.com/licenses/mit/)
