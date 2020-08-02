@@ -18,6 +18,10 @@ Fetch (URL da api)
 
 Com esse pequeno código o deve terá acesso a api deseja e depois e só usar como quiser 
 
+# Projeto hospedado no site 
+
+[GithubFinder](https://githubfinderup.netlify.app)
+
 # Desenvolver 
 Diego Francisco
 
