@@ -1,48 +1,73 @@
-const texto = document.getElementById('txt')
-const button= document.getElementById('btn')
-const err = document.getElementById('error')
-async function getUser() {
+const btn = document.getElementById('btn')
+const text = document.getElementById('inpt')
+const array = JSON.parse(localStorage.getItem('user')) || []
+
+
+async function chamadaApi() {
   try {
-    const text = texto.value;
-    const res = await fetch(`https://api.github.com/users/${text}`)
-    const resp = await res.json()
-    if (text.length == 0) {
-      err.innerHTML = `
-       <img src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves" style=" max-width: 50%"/>
-       <h1>Para visualizar um perfil digite um usuário por favor</h1>
-      `
-    } else {
-      console.log(resp);
-      mostrar(resp)
+    const texto = text.value
+    const api = await fetch(`https://api.github.com/users/${texto}`)
+    const res = await api.json()
+    const ArrayData = {
+      avatar: res.avatar_url,
+      name: res.name,
+      login: res.login
     }
+    array.push(ArrayData)
+    saveStorage()
+    init()
   }
   catch (err) { console.log(err) }
+
 }
-function mostrar(resposta){
-  const li = document.getElementById('list')
-  li.innerHTML +=`
-    <img src=${resposta.avatar_url} alt="avatar" />
-    <div class = "container">
-      <p>
-       Name: ${resposta.name}
-      </p>
-      <p>
-        Biografia: ${resposta.bio}
-      </p>
-      <p>
-        Compania: ${resposta.company}
-      </p>
-      <p>
-        Seguindo: ${resposta.following}
-      </p>
-      <p>
-       Seguidores: ${resposta.followers}
-      </p>
-      <p>
-        Repositórios: ${resposta.public_repos}
-      </p>
-      
-    </div>
-  `
+
+
+function init() {
+  const span = document.getElementById('seach')
+  span.innerHTML = ''
+  for (arr of array) {
+    spanHTML(arr)
+  }
 }
-button.onclick = getUser
+
+
+function spanHTML(arg) {
+  const pos = array.indexOf(arg)
+  const span = document.getElementById('seach')
+  span.innerHTML += `
+    <li>
+    <img src = "${arg.avatar}" class = "img"/>
+    ${arg.name}
+    <a class = "button" href = "#" onclick = "deleteAr(${pos})">x</a>
+   </li>`
+}
+
+
+function deleteAr(pos) {
+  array.splice(pos, 1)
+  init()
+  saveStorage()
+}
+
+btn.onclick = function() {
+  if (text.value.length === 0) {
+    console.log("repository not found");
+  }
+  else {
+    chamadaApi()
+  }
+
+  text.value = ""
+}
+
+function saveStorage() {
+  localStorage.setItem('user', JSON.stringify(array))
+}
+
+init()
+
+/*async function ola(arg){
+  const res = await fetch(`https://api.github.com/users/${arg}`)
+  const json = await res.json()
+  console.log(json.name);
+}*/
