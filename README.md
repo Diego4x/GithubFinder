@@ -5,6 +5,9 @@ Projeto utilizando a api do github e javascript
 - Pesquisar um usuario que ficara salvo no storage onde o usuário pode apagar
 - Ao clicar ao usuário aparecera um modal com mais informações sobre o usuário
 
+# Link do repositório
+[GitHubFinder](https://githubfinderup.netlify.app)
+
 # Desenvolver 
 Diego Francisco
 
