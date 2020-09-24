@@ -103,3 +103,8 @@ ul li {
   text-decoration: none;
   cursor: pointer;
 }
+
+.image {
+  width: 30px;
+  height: 30px;
+}

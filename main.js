@@ -35,11 +35,11 @@ function spanHTML(arg) {
   const pos = array.indexOf(arg)
   const span = document.getElementById('seach')
   span.innerHTML += `
-    <li data-index-type = "${arg.login}" onclick= "ola(this)">
+    <li>
     <img src = "${arg.avatar}" class = "img"/>
-    ${arg.name}
+    <span data-index-type = "${arg.login}" onclick = "ola(this)">${arg.name}</span>
     <a class = "button" href = "#" onclick = "deleteAr(${pos})">x</a>
-   </li>`
+    </li>`
 }
 
 
@@ -71,12 +71,13 @@ async function ola(arg) {
   const nome = arg.getAttribute("data-index-type")
   const res = await fetch(`https://api.github.com/users/${nome}`)
   const json = await res.json()
-  var node = document.createElement("P");
-  var textnode = document.createTextNode(json.name);
-  node.appendChild(textnode);
+
+  const Html = document.querySelector(".textoModal")
   
-  const Html = document.querySelector(".modal-content")
-  Html.appendChild(node);
+  Html.innerHTML = `
+  <img class = "image" src = "${json.avatar_url}"/>
+  <p>${json.name}</p>
+  <p>${json.bio}</p>`
 
 
   const modal = document.getElementById('myModal')
