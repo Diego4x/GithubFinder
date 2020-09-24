@@ -67,8 +67,31 @@ function saveStorage() {
 init()
 
 async function ola(arg) {
+
   const nome = arg.getAttribute("data-index-type")
   const res = await fetch(`https://api.github.com/users/${nome}`)
   const json = await res.json()
-  console.log(json.name);
+  var node = document.createElement("P");
+  var textnode = document.createTextNode(json.name);
+  node.appendChild(textnode);
+  
+  const Html = document.querySelector(".modal-content")
+  Html.appendChild(node);
+
+
+  const modal = document.getElementById('myModal')
+
+  modal.style.display = "block"
+
+
+  const close = document.querySelector('.close')
+  close.onclick = function() {
+    modal.style.display = "none"
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 }
