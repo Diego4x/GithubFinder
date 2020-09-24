@@ -37,7 +37,7 @@ function spanHTML(arg) {
   span.innerHTML += `
     <li>
     <img src = "${arg.avatar}" class = "img"/>
-    <span data-index-type = "${arg.login}" onclick = "ola(this)">${arg.name}</span>
+    <span data-index-type = "${arg.login}" onclick = "info(this)">${arg.name}</span>
     <a class = "button" href = "#" onclick = "deleteAr(${pos})">x</a>
     </li>`
 }
@@ -66,7 +66,7 @@ function saveStorage() {
 
 init()
 
-async function ola(arg) {
+async function info(arg) {
 
   const nome = arg.getAttribute("data-index-type")
   const res = await fetch(`https://api.github.com/users/${nome}`)
@@ -77,7 +77,10 @@ async function ola(arg) {
   Html.innerHTML = `
   <img class = "image" src = "${json.avatar_url}"/>
   <p>${json.name}</p>
-  <p>${json.bio}</p>`
+  <p>${json.bio}</p>
+  <p>Seguidores: ${json.followers}</p>
+  <p>Seguindo: ${json.following}</p>
+  <p>Repositórios: ${json.public_repos}</p>`
 
 
   const modal = document.getElementById('myModal')

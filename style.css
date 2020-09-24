@@ -108,3 +108,9 @@ ul li {
   width: 30px;
   height: 30px;
 }
+
+.follow{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
