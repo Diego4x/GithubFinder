@@ -35,7 +35,7 @@ function spanHTML(arg) {
   const pos = array.indexOf(arg)
   const span = document.getElementById('seach')
   span.innerHTML += `
-    <li>
+    <li data-index-type = "${arg.login}" onclick= "ola(this)">
     <img src = "${arg.avatar}" class = "img"/>
     ${arg.name}
     <a class = "button" href = "#" onclick = "deleteAr(${pos})">x</a>
@@ -66,8 +66,9 @@ function saveStorage() {
 
 init()
 
-/*async function ola(arg){
-  const res = await fetch(`https://api.github.com/users/${arg}`)
+async function ola(arg) {
+  const nome = arg.getAttribute("data-index-type")
+  const res = await fetch(`https://api.github.com/users/${nome}`)
   const json = await res.json()
   console.log(json.name);
-}*/
+}
