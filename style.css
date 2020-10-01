@@ -1,5 +1,5 @@
 body {
-  background-color: #A4700D;
+  background-color: #0918BA;
   font-family: Arial;
   font-size: 18px;
   color: #ffffff;
@@ -44,12 +44,21 @@ ul li {
   font-size: 20px;
 }
 
+#btn{
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  background-color:  #0918BA;
+  color: #FFFFFF;
+  padding: 3px 10px;
+}
+
 
 .button {
   position: absolute;
   left: 100%;
   border-radius: 1px;
-  background: #A4700D;
+  background:  #0918BA;
   padding: 3px 6px 3px 6px;
   text-decoration: none;
   align-items: center;
