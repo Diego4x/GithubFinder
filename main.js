@@ -73,14 +73,15 @@ async function info(arg) {
   const json = await res.json()
 
   const Html = document.querySelector(".textoModal")
-  
+  const linkRepo = `https://github.com/${json.login}`
   Html.innerHTML = `
   <img class = "image" src = "${json.avatar_url}"/>
   <p>${json.name}</p>
   <p>${json.bio}</p>
   <p>Seguidores: ${json.followers}</p>
   <p>Seguindo: ${json.following}</p>
-  <p>Repositórios: ${json.public_repos}</p>`
+  <p>Repositórios: ${json.public_repos}</p>
+  <a href=${linkRepo}>ver repo</a>`
 
 
   const modal = document.getElementById('myModal')
