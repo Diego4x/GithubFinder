@@ -6,6 +6,9 @@ body {
   text-align: center;
 }
 
+::placeholder{
+  color: #0918BA;
+}
 .box {
   display: flex;
   flex-direction: column;
