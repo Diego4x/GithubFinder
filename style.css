@@ -6,9 +6,6 @@ body {
   text-align: center;
 }
 
-::placeholder{
-  color: #0918BA;
-}
 .box {
   display: flex;
   flex-direction: column;
@@ -67,7 +64,31 @@ ul li {
   align-items: center;
   color: white;
 }
-
+.cards{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.card1{
+  border: solid;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
+.card2{
+  border: solid;
+  background-color: red;
+  color: white;
+  padding: 10px;
+}
+.card3{
+  border: solid;
+  background-color: green;
+  color: white;
+  padding: 10px;
+}
 /* The Modal (background) */
 .modal {
   display: none;
@@ -118,8 +139,8 @@ ul li {
 }
 
 .image {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
 }
 
 .follow{

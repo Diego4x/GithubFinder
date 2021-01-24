@@ -78,9 +78,17 @@ async function info(arg) {
   <img class = "image" src = "${json.avatar_url}"/>
   <p>${json.name}</p>
   <p>${json.bio}</p>
-  <p>Seguidores: ${json.followers}</p>
-  <p>Seguindo: ${json.following}</p>
-  <p>Repositórios: ${json.public_repos}</p>
+  <div class = "cards">
+  <div class = "card1">
+    <p>Seguidores: ${json.followers}</p>
+  </div>
+  <div class = "card2">
+    <p>Seguindo: ${json.following}</p>
+  </div>
+  <div class = "card3">
+    <p>Repositórios: ${json.public_repos}</p>
+  </div>
+  </div>
   <a href=${linkRepo}>ver repo</a>`
 
 
